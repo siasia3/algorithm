@@ -19,21 +19,19 @@ public class Main {
         int[] mArr = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
 
         for(int i=0; i<nArr.length;i++){
-            if(map.containsKey(nArr[i])) {
+            /*if(map.containsKey(nArr[i])) {
                 Integer value = map.get(nArr[i]);
                 map.put(nArr[i], value+1);
             }else{
                 map.put(nArr[i], 1);
-            }
+            }*/
+            map.put(nArr[i], map.getOrDefault(nArr[i],0)+1);
         }
 
         for(int j=0;j<mArr.length;j++){
-            if(map.containsKey(mArr[j])){
-                bw.write(map.get(mArr[j])+" ");
-            }else{
-                bw.write("0 ");
-            }
+            bw.write(map.getOrDefault(mArr[j],0)+" ");
         }
+
 
         bw.flush();
         bw.close();
